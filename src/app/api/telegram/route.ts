@@ -84,8 +84,7 @@ ${data.customPain ? `📝 <b>Свой вариант:</b> ${escapeHTML(data.cust
           action_source: 'website',
           user_data: userData,
           custom_data: { lead_type: 'strategic_call' }
-        }],
-        test_event_code: 'TEST25502'
+        }]
       };
 
       const fbToken = process.env.META_CAPI_TOKEN || 'EAAX9njZBEUpkBRIzlxvAzK5yB9KlJm3pBKrKmcsilg8HeNqZAztmNyZBzTZCTKTirnxUNwpLGCgngXXR5PBHrZAxYxNSuwagZA31H3ZCFEFyHE6Qc5PfFXPt7vdZAJlHojuk65ltWbJrmFTxdfxfJQ7Nx5I3wyajousPCqIdwNXGRX0UUeHluhZCuxZAC6kbkBY6HmugZDZD';
