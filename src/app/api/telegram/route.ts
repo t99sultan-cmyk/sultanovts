@@ -87,7 +87,7 @@ ${data.customPain ? `📝 <b>Свой вариант:</b> ${escapeHTML(data.cust
         }]
       };
 
-      const fbToken = 'EAAX9njZBEUpkBRIzlxvAzK5yB9KlJm3pBKrKmcsilg8HeNqZAztmNyZBzTZCTKTirnxUNwpLGCgngXXR5PBHrZAxYxNSuwagZA31H3ZCFEFyHE6Qc5PfFXPt7vdZAJlHojuk65ltWbJrmFTxdfxfJQ7Nx5I3wyajousPCqIdwNXGRX0UUeHluhZCuxZAC6kbkBY6HmugZDZD';
+      const fbToken = process.env.META_CAPI_TOKEN || 'EAAX9njZBEUpkBRIzlxvAzK5yB9KlJm3pBKrKmcsilg8HeNqZAztmNyZBzTZCTKTirnxUNwpLGCgngXXR5PBHrZAxYxNSuwagZA31H3ZCFEFyHE6Qc5PfFXPt7vdZAJlHojuk65ltWbJrmFTxdfxfJQ7Nx5I3wyajousPCqIdwNXGRX0UUeHluhZCuxZAC6kbkBY6HmugZDZD';
       const fbPixel = '1594096488531473';
 
       fetch(`https://graph.facebook.com/v19.0/${fbPixel}/events?access_token=${fbToken}`, {
