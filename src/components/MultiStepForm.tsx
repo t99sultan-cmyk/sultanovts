@@ -73,29 +73,55 @@ export default function MultiStepForm() {
 
   if (isSuccess) {
     return (
-      <div id="successState" className="flex flex-col items-center justify-center py-8 text-center animate-in fade-in zoom-in duration-500">
-        <div className="w-16 h-16 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
-          <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-        </div>
-        <h3 className="text-[22px] font-bold mb-3 tracking-tight text-white">Анкета получена!</h3>
-        <p className="text-gray-300 text-[14px] leading-relaxed mb-6">
-          Я лично изучу ваш проект. Если он подойдет под наши критерии, я свяжусь с вами в течение <strong>24-48 часов</strong>.
-        </p>
+      <div id="successState" className="flex flex-col w-full animate-in fade-in zoom-in duration-700">
         
-        <div className="w-full h-[1px] bg-white/5 mb-6"></div>
-        
-        <p className="text-[14px] font-bold text-white mb-4 uppercase tracking-widest text-orange-500">Последний шаг</p>
-        <p className="text-gray-400 text-[13px] leading-relaxed mb-4">
-          Подтвердите намерения и забронируйте за собой место символическим депозитом (990 ₸).
-        </p>
-        <p className="text-gray-500 text-[13px] leading-relaxed mb-6 italic border-l-2 border-[#2E221D] pl-3 text-left">
-          Если по итогам изучения анкеты мы поймем, что вы не подходите по критериям и мы не сможем взять вас в работу — <strong>мы сделаем вам полный возврат средств.</strong>
-        </p>
-        <a href="https://pay.kaspi.kz/pay/v8cgtz6k" target="_blank" rel="noopener noreferrer" className="w-full block">
-          <div className="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:scale-105 text-white font-bold text-[15px] py-4 rounded-[1.2rem] shadow-[0_0_20px_rgba(249,115,22,0.4)] relative overflow-hidden h-14 flex items-center justify-center transition-all">
-            Оплатить через Kaspi
+        {/* Main Status Block */}
+        <div className="w-full bg-[#111] border border-white/5 rounded-[2rem] p-6 sm:p-8 mb-6 shadow-xl relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-orange-500/20 rounded-full blur-[50px] pointer-events-none"></div>
+
+          <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-orange-600 to-orange-400 flex items-center justify-center mb-6 mx-auto shadow-[0_0_30px_rgba(249,115,22,0.4)] relative z-10">
+            <svg className="w-8 h-8 text-white relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
           </div>
-        </a>
+          
+          <h3 className="text-2xl font-bold mb-4 tracking-tight text-white text-center relative z-10">Анкета получена!</h3>
+          
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center relative z-10">
+            <p className="text-gray-300 text-[15px] leading-relaxed">
+              Я лично изучу ваш проект. Если он подойдет под наши критерии, я свяжусь с вами в течение <strong className="text-white">24-48 часов</strong>.
+            </p>
+          </div>
+        </div>
+        
+        {/* Action Block - Kaspi Payment */}
+        <div className="w-full bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] border border-orange-500/20 rounded-[2rem] p-6 sm:p-8 shadow-[0_0_40px_rgba(249,115,22,0.05)]">
+          <div className="flex flex-col items-center text-center mb-6">
+            <div className="inline-block px-4 py-1.5 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-500 text-[11px] font-bold uppercase tracking-widest mb-4">
+              Последний шаг
+            </div>
+            <h4 className="text-white text-[20px] font-bold mb-2">Забронируйте свое место</h4>
+            <p className="text-gray-400 text-[14px] leading-relaxed">
+              Подтвердите серьезность ваших намерений символическим депозитом (<strong className="text-white">990 ₸</strong>).
+            </p>
+          </div>
+          
+          <a href="https://pay.kaspi.kz/pay/v8cgtz6k" target="_blank" rel="noopener noreferrer" className="w-full block mb-5">
+            <div className="w-full bg-gradient-to-r from-[#F14635] to-[#FF6B00] hover:scale-[1.02] active:scale-[0.98] text-white font-bold text-[16px] py-4 rounded-2xl shadow-[0_0_20px_rgba(241,70,53,0.4)] relative flex items-center justify-center transition-all duration-300 group">
+              <span>Оплатить через Kaspi</span>
+              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+          </a>
+
+          <div className="flex items-start bg-white/[0.03] rounded-2xl p-5 border border-white/5 text-left">
+            <div className="bg-white/10 rounded-full p-1.5 shrink-0 mr-4">
+               <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <p className="text-gray-400 text-[13px] leading-relaxed mt-[-2px]">
+              Если по итогам изучения анкеты мы поймем, что вы не подходите по критериям и мы не сможем взять вас в работу — <strong className="text-gray-200">мы сразу сделаем вам полный возврат средств.</strong>
+            </p>
+          </div>
+        </div>
+        
       </div>
     );
   }
