@@ -24,3 +24,21 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes emoji-pop {
+  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
+  60% { transform: scale(1.4) rotate(15deg); opacity: 1; }
+  80% { transform: scale(0.9) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes emoji-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(4deg); }
+}
+
+.animate-emoji {
+  display: inline-block;
+  animation: emoji-pop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards, emoji-float 3s ease-in-out infinite 0.8s;
+  opacity: 0;
+}
