@@ -60,6 +60,45 @@ ${data.customPain ? `📝 <b>Свой вариант:</b> ${escapeHTML(data.cust
       return NextResponse.json({ success: false, error: result.description }, { status: 500 });
     }
 
+    // Facebook Conversions API (CAPI) Integration
+    try {
+      const crypto = await import('crypto');
+      const hashData = (str: string) => crypto.createHash('sha256').update(str.trim().toLowerCase()).digest('hex');
+      
+      const client_ip_address = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || '127.0.0.1';
+      const client_user_agent = req.headers.get('user-agent') || '';
+      
+      const phoneOnlyDigits = String(data.phone || '').replace(/\D/g, '');
+      const userData: any = {
+        client_ip_address,
+        client_user_agent,
+      };
+      
+      if (phoneOnlyDigits) userData.ph = [hashData(phoneOnlyDigits)];
+      if (data.name) userData.fn = [hashData(data.name)];
+
+      const fbPayload = {
+        data: [{
+          event_name: 'Lead',
+          event_time: Math.floor(Date.now() / 1000),
+          action_source: 'website',
+          user_data: userData,
+          custom_data: { lead_type: 'strategic_call' }
+        }]
+      };
+
+      const fbToken = 'EAAX9njZBEUpkBRIzlxvAzK5yB9KlJm3pBKrKmcsilg8HeNqZAztmNyZBzTZCTKTirnxUNwpLGCgngXXR5PBHrZAxYxNSuwagZA31H3ZCFEFyHE6Qc5PfFXPt7vdZAJlHojuk65ltWbJrmFTxdfxfJQ7Nx5I3wyajousPCqIdwNXGRX0UUeHluhZCuxZAC6kbkBY6HmugZDZD';
+      const fbPixel = '1594096488531473';
+
+      fetch(`https://graph.facebook.com/v19.0/${fbPixel}/events?access_token=${fbToken}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(fbPayload)
+      }).catch(err => console.error("FB CAPI Error:", err)); // Fire and forget
+    } catch(err) {
+      console.error("CAPI wrapper error:", err);
+    }
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error sending to telegram:", error);

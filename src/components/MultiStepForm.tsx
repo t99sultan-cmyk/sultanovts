@@ -58,10 +58,16 @@ export default function MultiStepForm() {
       });
       setIsSubmitting(false);
       setIsSuccess(true);
+      if (typeof window !== 'undefined' && 'fbq' in window) {
+        (window as any).fbq('track', 'Lead');
+      }
     } catch (err) {
       console.error(err);
       setIsSubmitting(false);
       setIsSuccess(true); // Fallback to success visually
+      if (typeof window !== 'undefined' && 'fbq' in window) {
+        (window as any).fbq('track', 'Lead');
+      }
     }
   };
 
