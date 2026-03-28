@@ -72,18 +72,18 @@ export default function MultiStepForm() {
           <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
         </div>
         <h3 className="text-[22px] font-bold mb-3 tracking-tight text-white">Анкета получена!</h3>
-        <p className="text-gray-300 text-[14px] leading-relaxed mb-3">
+        <p className="text-gray-300 text-[14px] leading-relaxed mb-6">
           Я лично изучу ваш проект. Если он подойдет под наши критерии, я свяжусь с вами в течение <strong>24-48 часов</strong>.
-        </p>
-        <p className="text-gray-500 text-[13px] leading-relaxed mb-6 italic border-l-2 border-[#2E221D] pl-3 text-left">
-          Если я не вышел на связь — значит, на данном этапе ваш бизнес пока не готов к нашим инструментам, либо масштаб проекта нам не интересен. Без обид.
         </p>
         
         <div className="w-full h-[1px] bg-white/5 mb-6"></div>
         
         <p className="text-[14px] font-bold text-white mb-4 uppercase tracking-widest text-orange-500">Последний шаг</p>
-        <p className="text-gray-400 text-[13px] leading-relaxed mb-5">
-          Подтвердите намерения и забронируйте за собой место символическим депозитом (990₸).
+        <p className="text-gray-400 text-[13px] leading-relaxed mb-4">
+          Подтвердите намерения и забронируйте за собой место символическим депозитом (990 ₸).
+        </p>
+        <p className="text-gray-500 text-[13px] leading-relaxed mb-6 italic border-l-2 border-[#2E221D] pl-3 text-left">
+          Если по итогам изучения анкеты мы поймем, что вы не подходите по критериям и мы не сможем взять вас в работу — <strong>мы сделаем вам полный возврат средств.</strong>
         </p>
         <a href="https://pay.kaspi.kz/pay/v8cgtz6k" target="_blank" rel="noopener noreferrer" className="w-full block">
           <div className="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:scale-105 text-white font-bold text-[15px] py-4 rounded-[1.2rem] shadow-[0_0_20px_rgba(249,115,22,0.4)] relative overflow-hidden h-14 flex items-center justify-center transition-all">
