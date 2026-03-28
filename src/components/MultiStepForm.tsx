@@ -67,12 +67,29 @@ export default function MultiStepForm() {
 
   if (isSuccess) {
     return (
-      <div id="successState" className="flex flex-col items-center justify-center py-12 text-center animate-in fade-in zoom-in duration-500">
-        <div className="w-20 h-20 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
-          <svg className="w-10 h-10 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+      <div id="successState" className="flex flex-col items-center justify-center py-8 text-center animate-in fade-in zoom-in duration-500">
+        <div className="w-16 h-16 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+          <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
         </div>
-        <h3 className="text-[24px] font-bold mb-3 tracking-tight text-white">Отлично!</h3>
-        <p className="text-gray-400 text-[15px] leading-relaxed">Я свяжусь с вами по указанному номеру для подтверждения времени.</p>
+        <h3 className="text-[22px] font-bold mb-3 tracking-tight text-white">Анкета получена!</h3>
+        <p className="text-gray-300 text-[14px] leading-relaxed mb-3">
+          Я лично изучу ваш проект. Если он подойдет под наши критерии, я свяжусь с вами в течение <strong>24-48 часов</strong>.
+        </p>
+        <p className="text-gray-500 text-[13px] leading-relaxed mb-6 italic border-l-2 border-[#2E221D] pl-3 text-left">
+          Если я не вышел на связь — значит, на данном этапе ваш бизнес пока не готов к нашим инструментам, либо масштаб проекта нам не интересен. Без обид.
+        </p>
+        
+        <div className="w-full h-[1px] bg-white/5 mb-6"></div>
+        
+        <p className="text-[14px] font-bold text-white mb-4 uppercase tracking-widest text-orange-500">Последний шаг</p>
+        <p className="text-gray-400 text-[13px] leading-relaxed mb-5">
+          Подтвердите намерения и забронируйте за собой место символическим депозитом (990₸).
+        </p>
+        <a href="https://pay.kaspi.kz/pay/v8cgtz6k" target="_blank" rel="noopener noreferrer" className="w-full block">
+          <div className="w-full bg-gradient-to-r from-red-600 to-orange-500 hover:scale-105 text-white font-bold text-[15px] py-4 rounded-[1.2rem] shadow-[0_0_20px_rgba(249,115,22,0.4)] relative overflow-hidden h-14 flex items-center justify-center transition-all">
+            Оплатить через Kaspi
+          </div>
+        </a>
       </div>
     );
   }
